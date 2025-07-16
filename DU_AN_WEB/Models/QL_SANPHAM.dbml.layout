@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 8.5" name="QL_SANPHAM">
+  <DataContextMoniker Name="/QL_SANPHAMDataContext" />
+  <nestedChildShapes>
+    <classShape Id="9d368346-aea5-471e-bb56-efdca440eeeb" absoluteBounds="6.25, 1.375, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/QL_SANPHAMDataContext/DONHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c04bdc67-1785-4fad-a310-ec8637c2c1bc" absoluteBounds="6.265, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0f2e569f-008c-4502-b157-a61e42d2b266" absoluteBounds="3.5, 4.875, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/QL_SANPHAMDataContext/USER_DATA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f1b64e09-5edc-4456-bab9-203adab5c8e1" absoluteBounds="3.515, 5.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f5d7719f-f898-4da0-9373-ad67c6a27cc0" absoluteBounds="9, 1.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/QL_SANPHAMDataContext/HOA_DON" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c0bd7cc-f28f-4828-b051-1b7f72344ce1" absoluteBounds="9.015, 1.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5fa0c668-253b-437f-a84a-fdfc971e1d18" absoluteBounds="0.75, 1.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/QL_SANPHAMDataContext/LOAISP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="21b374b6-605c-41a6-bb13-404f3ad97a5a" absoluteBounds="0.765, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0ecd70c-8adb-475b-9394-880d14e5c48b" absoluteBounds="3.5, 1, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/QL_SANPHAMDataContext/SANPHAM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="645236fa-f151-4e81-a07e-9a64eb2aa923" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 6.14505126953125); (7.25 : 6.14505126953125); (7.25 : 2.7612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QL_SANPHAMDataContext/USER_DATA/USER_DATA_DONHANG" />
+      <nodes>
+        <classShapeMoniker Id="0f2e569f-008c-4502-b157-a61e42d2b266" />
+        <classShapeMoniker Id="9d368346-aea5-471e-bb56-efdca440eeeb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 2.06814697265625); (9 : 2.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QL_SANPHAMDataContext/DONHANG/DONHANG_HOA_DON" />
+      <nodes>
+        <classShapeMoniker Id="9d368346-aea5-471e-bb56-efdca440eeeb" />
+        <classShapeMoniker Id="f5d7719f-f898-4da0-9373-ad67c6a27cc0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.06814697265625); (6.25 : 2.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QL_SANPHAMDataContext/SANPHAM/SANPHAM_DONHANG" />
+      <nodes>
+        <classShapeMoniker Id="f0ecd70c-8adb-475b-9394-880d14e5c48b" />
+        <classShapeMoniker Id="9d368346-aea5-471e-bb56-efdca440eeeb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.09699625651042); (3.5 : 2.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QL_SANPHAMDataContext/LOAISP/LOAISP_SANPHAM" />
+      <nodes>
+        <classShapeMoniker Id="5fa0c668-253b-437f-a84a-fdfc971e1d18" />
+        <classShapeMoniker Id="f0ecd70c-8adb-475b-9394-880d14e5c48b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,512 @@
+﻿canvas {
+    display: block;
+    vertical-align: bottom;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+    background-color: #4c71dd;
+    background-image: url();
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat
+}
+
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10,14,27,.67);
+    cursor: pointer
+}
+
+.contact-icon .btn-icon {
+    border-radius: 50%;
+    width: 30px;
+    line-height: 0;
+    height: 30px;
+    padding: 0;
+    text-align: center
+}
+
+img.gioi-thieu {
+    min-width: 170px;
+    max-height: 80px
+}
+
+.gioi-thieu-content {
+    color: #000
+}
+
+.header-form-login {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 15rem
+}
+
+.bg-form-login {
+    position: absolute
+}
+
+    .bg-form-login img {
+        transform: translate(-1px,-4px);
+        width: 532px;
+        height: auto
+    }
+
+.info-form-login {
+    position: absolute;
+    width: 57%;
+    padding-top: 1rem;
+    margin-left: 2rem;
+    color: #fff;
+    font-size: 17px
+}
+
+.info-form-login-title {
+    font-size: 1.8rem;
+    font-weight: 800
+}
+
+.info-form-login-content {
+    font-size: 13px;
+    font-weight: 700
+}
+
+.shadow-auth {
+    box-shadow: 0 5px 15px rgba(0,0,0,.35)
+}
+
+#auth-form-login, #auth-form-register {
+    padding: 0 7px;
+    margin: auto
+}
+
+.label-remember {
+    color: #000;
+    font-weight: 600
+}
+
+.auth-btn-submit {
+    width: 100%;
+    color: #fff;
+    background-color: #2060c1;
+    border-color: #2060c1
+}
+
+    .auth-btn-submit:not(:disabled):not(.disabled).active:focus, .auth-btn-submit:not(:disabled):not(.disabled):active:focus {
+        box-shadow: 0 0 0 .2rem rgba(105,136,228,.5)
+    }
+
+    .auth-btn-submit:not(:disabled):not(.disabled).active, .auth-btn-submit:not(:disabled):not(.disabled):active {
+        color: #fff;
+        background-color: #2653d4;
+        border-color: #244ec9
+    }
+
+    .auth-btn-submit:hover, .btn-icon:hover {
+        color: #fff;
+        background-color: #0065ff;
+        border-color: #0065ff
+    }
+
+.btn-icon {
+    color: #fff;
+    background-color: #2258a3;
+    border-color: #2258a3
+}
+
+    .btn-icon:not(:disabled):not(.disabled).active:focus, .btn-icon:not(:disabled):not(.disabled):active:focus {
+        box-shadow: 0 0 0 .2rem rgba(105,136,228,.5)
+    }
+
+    .btn-icon:not(:disabled):not(.disabled).active, .btn-icon:not(:disabled):not(.disabled):active {
+        color: #fff;
+        background-color: #2653d4;
+        border-color: #244ec9
+    }
+
+.auth-title-register {
+    color: #000
+}
+
+.auth-link-register {
+    font-weight: 650;
+    color: #0778db
+}
+
+.contact-auth {
+    position: relative
+}
+
+    .contact-auth:before {
+        left: 19px
+    }
+
+    .contact-auth:after, .contact-auth:before {
+        content: "";
+        position: absolute;
+        height: 1px;
+        background: #2b5fa6;
+        width: 33%;
+        top: 14px
+    }
+
+    .contact-auth:after {
+        right: 19px
+    }
+
+.container-auth {
+    max-width: 530px;
+    margin: auto;
+    border: none;
+    border-radius: unset
+}
+
+.color-dark {
+    color: #000;
+    font-weight: 600
+}
+
+.gioi-thieu-title {
+    color: #000;
+    font-size: 19px;
+    font-weight: 650
+}
+
+.contact-icon-login .btn-icons {
+    border-radius: 50%;
+    width: 40px;
+    line-height: 0;
+    height: 40px;
+    padding: 8px 5px;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 1em
+}
+
+.btn-icon-facebook {
+    color: #fff;
+    background-color: #1b76f1;
+    border-color: #1b76f1
+}
+
+    .btn-icon-facebook:hover {
+        color: #fff;
+        background-color: #2258a3;
+        border-color: #2258a3
+    }
+
+.btn-icon-google {
+    color: #fff;
+    background-color: #ea4335;
+    border-color: #ea4335
+}
+
+    .btn-icon-google:hover {
+        color: #fff;
+        background-color: #e12717;
+        border-color: #e12717
+    }
+
+.btn-icon-phone {
+    color: #fff;
+    background-color: #2dc100;
+    border-color: #2dc100
+}
+
+    .btn-icon-phone:hover {
+        color: #fff;
+        background-color: #60d93c;
+        border-color: #60d93c
+    }
+
+@media (max-width:1200px) {
+    .bg-form-login img {
+        width: 525px
+    }
+
+    .container-auth {
+        max-width: 520px
+    }
+
+    .info-form-login-title {
+        font-size: 1.7rem
+    }
+
+    .info-form-login-content {
+        font-size: 13px
+    }
+
+    .header-form-login {
+        height: 15rem
+    }
+
+    .gioi-thieu-content {
+        font-size: 16px
+    }
+}
+
+@media (max-width:1000px) {
+    .gioi-thieu-title {
+        font-size: 17px
+    }
+
+    .bg-form-login img {
+        width: 480px
+    }
+
+    .container-auth {
+        max-width: 500px
+    }
+
+    .info-form-login-title {
+        font-size: 1.7rem
+    }
+
+    .info-form-login-content {
+        font-size: 12px
+    }
+
+    .header-form-login {
+        height: 13rem
+    }
+
+    .gioi-thieu-content {
+        font-size: 14px
+    }
+
+    .auth-btn-submit {
+        font-size: 15px
+    }
+
+    .form-group-info {
+        margin-bottom: .8rem !important
+    }
+
+    .form-group-info-password {
+        margin-bottom: .6rem !important
+    }
+
+    .gioi-thieu-content {
+        margin-bottom: 1rem !important
+    }
+
+    .contact-auth:after, .contact-auth:before {
+        width: 30%
+    }
+
+    .auth-link-register, .auth-title-register {
+        font-size: 15px
+    }
+}
+
+@media (max-width:875px) {
+    .bg-form-login img {
+        width: 415px
+    }
+
+    .gioi-thieu-content {
+        margin-bottom: 1rem !important
+    }
+
+    .container-auth {
+        max-width: 450px
+    }
+
+    .info-form-login-title {
+        font-size: 1.5rem
+    }
+
+    .info-form-login-content {
+        font-size: 11px
+    }
+
+    .header-form-login {
+        height: 11rem
+    }
+
+    .gioi-thieu-content {
+        font-size: 14px
+    }
+
+    .auth-link-register, .auth-title-register {
+        font-size: 13px
+    }
+
+    .contact-auth:after, .contact-auth:before {
+        width: 28%
+    }
+}
+
+@media (max-width:780px) {
+    .gioi-thieu-title {
+        font-size: 15px
+    }
+
+    .bg-form-login img {
+        width: 453px
+    }
+
+    .info-form-login-title {
+        font-size: 1.5rem
+    }
+
+    .header-form-login {
+        height: 13rem
+    }
+
+    .info-form-login-content {
+        font-size: 12px
+    }
+
+    .gioi-thieu-content {
+        font-size: 16px;
+        margin-bottom: 1rem !important
+    }
+
+    .auth-btn-submit {
+        font-size: 14px
+    }
+
+    .form-group-info {
+        margin-bottom: .8rem !important
+    }
+
+    .form-group-info-password {
+        margin-bottom: .4rem !important
+    }
+
+    .contact-icon .btn-icon {
+        font-size: 13px;
+        width: 28px;
+        height: 28px
+    }
+
+    img.gioi-thieu {
+        min-width: 130px;
+        max-height: 70px
+    }
+
+    .contact-auth:after, .contact-auth:before {
+        width: 26%
+    }
+
+    .auth-link-register, .auth-title-register {
+        font-size: 15px
+    }
+}
+
+@media (max-width:500px) {
+    .bg-form-login img {
+        width: 320px
+    }
+
+    .container-auth {
+        max-width: 315px
+    }
+
+    .info-form-login-title {
+        font-size: 1.1rem
+    }
+
+    .info-form-login-content {
+        font-size: 9px
+    }
+
+    .header-form-login {
+        height: 9rem
+    }
+
+    .gioi-thieu-content {
+        font-size: 13px
+    }
+
+    .pt-4 {
+        padding-top: 0 !important
+    }
+
+    img.gioi-thieu {
+        min-width: 100px;
+        max-height: 70px
+    }
+
+    .auth-link-register, .auth-title-register {
+        font-size: 13px
+    }
+
+    .auth-link-forgot-password, .custom-control-label.label-remember {
+        font-size: 11px
+    }
+
+    .contact-auth:after, .contact-auth:before {
+        width: 24%
+    }
+
+    img.gioi-thieu {
+        min-width: 90px;
+        max-height: 60px
+    }
+
+    .gioi-thieu-content {
+        font-size: 12px;
+        margin-bottom: .8rem !important
+    }
+
+    .auth-btn-submit {
+        font-size: 14px
+    }
+
+    .form-group-info {
+        margin-bottom: .7rem !important
+    }
+
+    .form-group-info-password {
+        margin-bottom: .3rem !important
+    }
+
+    .container-forgot-password {
+        transform: translateY(-2px)
+    }
+
+    .contact-icon .btn-icon {
+        font-size: 12px;
+        width: 27px;
+        height: 27px
+    }
+}
+
+@media (max-width:576px) {
+    .form-group-mb {
+        margin-bottom: .7rem !important
+    }
+}
+
+@-webkit-keyframes not-blink {
+    0% {
+        opacity: 1
+    }
+
+    70% {
+        opacity: 1
+    }
+
+    80% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 0
+    }
+}

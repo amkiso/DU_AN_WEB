@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<!-- Hiển thị thông báo lỗi hoặc thành công -->
+@if (ViewBag.Message != null)
+{
+    <div style="color:red">@ViewBag.Message</div>
+}
+
+<!-- Form đăng nhập -->
+@using (Html.BeginForm("SubmitForm", "Home", FormMethod.Post))
+{
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required />
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required />
+    </div>
+    <div>
+        <button type="submit">Login</button>
+    </div>
+}

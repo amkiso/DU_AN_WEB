@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+<link href="~/Content/Style/css.css" rel="stylesheet" />
+<link href="~/Content/Style/login.css" rel="stylesheet" />
+<!-- Form đăng nhập -->
+@using (Html.BeginForm("SubmitForm", "Home", FormMethod.Post))
+{
+    <div class="d-flex justify-content-center align-items-start min-vh-100 bg-light pt-5">
+        <div class="card shadow p-5" style="width: 100%; max-width: 500px;">
+            <h2 class="text-center mb-4">Đăng nhập</h2>
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="p-3 pt-sm-4 pb-sm-4 px-sm-4">
+                            <div class="pt-4 pt-sm-0 text-center">
+                                <a href="/">
+                                    <img style="width: 180px; margin-bottom: 15px;" src="/content/Pic/nxbkd.png" alt="">
+                                </a>
+                                <p class="mb-4 gioi-thieu-content">Vui lòng đăng nhập để đặt hàng &amp; quản lý tài nguyên</p>
+                                @if (ViewBag.Message != null)
+                                {
+                                    <div style="color:red">@ViewBag.Message</div>
+                                }
+                            </div>
+
+                            <div id="message" class="messager-login error-login text-center text-danger" style="display: none;">
+
+                                <p class="alert alert-danger" id="messageContent"></p>
+                            </div>
+                            <form class="user" id="auth-form-login" method="post" enctype="multipart/form-data">
+                                <div class="form-group form-group-info">
+                                    <input name="username" type="text" id="username" class="form-control rounded-pill" aria-describedby="Nhập tên người dùng" placeholder="Nhập tên người dùng">
+                                </div>
+                                <div class="form-group form-group-info-password">
+                                    <input name="password" type="password" id="password" class="form-control rounded-pill" placeholder="Nhập password">
+                                </div>
+                                <div class="form-group row form-group-info">
+                                    <div class="col-6 float-left">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
+                                            <label class="custom-control-label label-remember" for="customCheck">Ghi nhớ đăng nhập</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="text-center float-right container-forgot-password">
+                                            <a class="small auth-link-forgot-password" href="/account/forgot-password" style="color: black;">Quên mật khẩu ?</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-7 mx-auto">
+                                        <button id="buttonSubmit" type="submit" class="btn btn-primary">Đăng nhập</button>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <span class="auth-title-register">Bạn chưa có tài khoản? </span>
+                                    <a class="auth-link-register" href="/Home/register">Đăng ký ngay</a>
+                                    <div style="margin-top: 5px;">
+                                        <a href="/"><i class="fa-duotone fa-house"></i>&nbsp;Trang chủ</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

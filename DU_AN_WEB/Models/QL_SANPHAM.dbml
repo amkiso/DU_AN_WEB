@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MY_PROJECT" Class="QL_SANPHAMDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.DONHANG" Member="DONHANGs">
+    <Type Name="DONHANG">
+      <Column Name="ID_USER" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ID_DONHANG" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_SANPHAM" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Association Name="DONHANG_HOA_DON" Member="HOA_DONs" ThisKey="ID_DONHANG" OtherKey="ID_DONHANG" Type="HOA_DON" />
+      <Association Name="USER_DATA_DONHANG" Member="USER_DATA" ThisKey="ID_USER" OtherKey="ID_USER" Type="USER_DATA" IsForeignKey="true" />
+      <Association Name="SANPHAM_DONHANG" Member="SANPHAM" ThisKey="ID_SANPHAM" OtherKey="ID_SANPHAM" Type="SANPHAM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USER_DATA" Member="USER_DATAs">
+    <Type Name="USER_DATA">
+      <Column Name="ID_USER" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME_USER" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_PASSWORD" Type="System.String" DbType="Char(64) NOT NULL" CanBeNull="false" />
+      <Column Name="DAY_CREATED" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="USER_ADDRESS" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="USER_TYPE" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="USER_STATUS" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="PROFILE_PICTURE" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Association Name="USER_DATA_DONHANG" Member="DONHANGs" ThisKey="ID_USER" OtherKey="ID_USER" Type="DONHANG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOA_DON" Member="HOA_DONs">
+    <Type Name="HOA_DON">
+      <Column Name="ID_DONHANG" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="PT_THANHTOAN" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="DAYCREATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ID_HOADON" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="DONHANG_HOA_DON" Member="DONHANG" ThisKey="ID_DONHANG" OtherKey="ID_DONHANG" Type="DONHANG" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOAISP" Member="LOAISPs">
+    <Type Name="LOAISP">
+      <Column Name="ID_LOAI" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENLOAI" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Association Name="LOAISP_SANPHAM" Member="SANPHAMs" ThisKey="ID_LOAI" OtherKey="ID_LOAI" Type="SANPHAM" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SANPHAM" Member="SANPHAMs">
+    <Type Name="SANPHAM">
+      <Column Name="ID_SANPHAM" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENSP" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="MOTA" Type="System.String" DbType="NChar(300)" CanBeNull="true" />
+      <Column Name="HINHANH" Type="System.String" DbType="Char(50)" CanBeNull="true" />
+      <Column Name="ID_LOAI" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="GIA_BAN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="SL_TON" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="XUAT_XU" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Association Name="SANPHAM_DONHANG" Member="DONHANGs" ThisKey="ID_SANPHAM" OtherKey="ID_SANPHAM" Type="DONHANG" />
+      <Association Name="LOAISP_SANPHAM" Member="LOAISP" ThisKey="ID_LOAI" OtherKey="ID_LOAI" Type="LOAISP" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
