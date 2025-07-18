@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using DU_AN_WEB.Models; // Thêm namespace chứa các model nếu cần
@@ -15,6 +17,10 @@ namespace DU_AN_WEB.Controllers
             return View();
         }
         public ActionResult DangNhap()
+        {
+            return View();
+        }
+        public ActionResult Dangki()
         {
             return View();
         }
@@ -45,7 +51,7 @@ namespace DU_AN_WEB.Controllers
             // Kiểm tra nhập thiếu
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                ViewBag.Message = "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu.";
+                ViewBag.Message = "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu!";
                 return View("DangNhap");
             }
 
@@ -56,7 +62,7 @@ namespace DU_AN_WEB.Controllers
 
             if (user == null)
             {
-                ViewBag.Message = "Tên đăng nhập hoặc mật khẩu không đúng.";
+                ViewBag.Message = "Tên đăng nhập hoặc mật khẩu không đúng!";
                 return View("DangNhap");
             }
 

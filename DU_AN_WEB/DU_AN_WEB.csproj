@@ -130,6 +130,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QL_SANPHAM.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +150,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Pic\bgr.jpg" />
+    <Content Include="Content\Pic\ChatGPT Image 21_12_37 10 thg 7, 2025.png" />
+    <Content Include="Content\Pic\IMG_20250713_143625.jpg" />
     <Content Include="Content\Style\css.css" />
     <Content Include="Content\Style\login.css" />
     <Content Include="favicon.ico" />
@@ -195,6 +199,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Home\DangNhap.cshtml" />
+    <Content Include="Views\Home\Dangki.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
