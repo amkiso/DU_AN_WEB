@@ -1,62 +1,55 @@
-﻿@model DU_AN_WEB.Models.UserModel
+﻿
 @{
-    ViewBag.Title = "Đăng ký";
-}
-
-@{
+    ViewBag.Title = "Dangki";
     Layout = null;
 }
-<!DOCTYPE html>
 
-<html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Đăng ký</title>
-
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <style>
-
-        .login-card {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
     
-        .logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 10px;
-            display: block;
-        }
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <style>
 
-        .form-check-label {
-            margin-bottom: 0;
-        }
+            .login-card {
+                max-width: 600px;
+                margin: 50px auto;
+                padding: 20px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+            }
 
-        .forgot-password {
-            font-size: 0.9em;
-        }
+            .logo {
+                width: 80px;
+                height: 80px;
+                margin: 0 auto 10px;
+                display: block;
+            }
 
-        .home-link {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
-            margin-top: 15px;
-        }
+            .form-check-label {
+                margin-bottom: 0;
+            }
 
-        .form-control {
-            display: flex;
-            margin: 0 auto;
-        }
+            .forgot-password {
+                font-size: 0.9em;
+            }
 
-        .home-link i {
-            margin-right: 5px;
-        }
-    </style>
+            .home-link {
+                display: inline-flex;
+                align-items: center;
+                text-decoration: none;
+                margin-top: 15px;
+            }
+
+            .form-control {
+                display: flex;
+                margin: 0 auto;
+            }
+
+            .home-link i {
+                margin-right: 5px;
+            }
+        </style>
+    
 </head>
-
 <body class="bg-gradient" style=" background-image: url('/Content/Pic/bgr.jpg') !important; background-size: cover; background-position: center;background-repeat: no-repeat; height:100%;margin:0;padding:0;">
     <div class="card login-card">
         <div class="card-body">
@@ -87,20 +80,20 @@
 
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="form-group me-2" style="flex: 1;">
-                        <input type="email" name="email" class="form-control" placeholder="Email" />
+                        <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email" />
                     </div>
                     <div class="form-group me-2">
                         <input type="text" name="verificationCode" class="form-control" placeholder="Mã xác nhận" style="width: 120px;" />
                     </div>
                     <button type="button" class="btn btn-primary" id="sendCodeBtn" onclick="sendCode()">Gửi mã</button>
                 </div>
-
+                <div id="sendCodeStatus" class="text-success small"></div>
 
                 <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
             }
 
             <p class="text-center mt-3">
-                Bạn đã tài khoản? <a href="/Home/Dangnhap">Đăng nhập</a>
+                Bạn đã tài khoản? <a href="/Account/Dangnhap">Đăng nhập</a>
             </p>
             <div class="text-center">
                 <a href="/Home/Index" class="home-link">
@@ -113,35 +106,47 @@
     </div>
     <script>
         function sendCode() {
-            const emailInput = document.querySelector('input[name="email"]');
-            const email = emailInput.value.trim();
-            const button = document.getElementById("sendCodeBtn");
+            var email = document.querySelector('input[name="email"]').value.trim();
+            var button = document.getElementById("sendCodeBtn");
 
             if (!email) {
-                alert("Vui lòng nhập email trước khi gửi mã.");
+                alert("Vui lòng nhập email.");
                 return;
             }
 
-            // Gửi mã thực tế ở đây nếu cần
-            alert("Mã xác nhận đã được gửi đến " + email);
-
-            // Bắt đầu đếm ngược
-            let countdown = 60;
-            button.disabled = true;
-            button.innerText = `Gửi lại (${countdown}s)`;
-
-            const interval = setInterval(() => {
-                countdown--;
-                if (countdown > 0) {
-                    button.innerText = `Gửi lại (${countdown}s)`;
-                } else {
-                    clearInterval(interval);
-                    button.disabled = false;
-                    button.innerText = "Gửi mã";
+            $.ajax({
+                url: '/Home/SendOtpCode',
+                type: 'POST',
+                data: { Email: email }, // không cần stringify
+                success: function (res) {
+                    if (res.success) {
+                        // Đếm ngược như trước
+                        let countdown = 60;
+                        button.disabled = true;
+                        button.innerText = `Gửi lại (${countdown}s)`;
+                        const interval = setInterval(() => {
+                            countdown--;
+                            if (countdown > 0) {
+                                button.innerText = `Gửi lại (${countdown}s)`;
+                            } else {
+                                clearInterval(interval);
+                                button.disabled = false;
+                                button.innerText = "Gửi mã";
+                            }
+                        }, 1000);
+                    } else {
+                        alert(res.message);
+                    }
+                },
+                error: function () {
+                    alert("Lỗi khi gửi mã xác nhận.");
                 }
-            }, 1000);
+            });
         }
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 </body>

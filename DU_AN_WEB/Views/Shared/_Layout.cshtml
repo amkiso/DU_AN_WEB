@@ -1,40 +1,348 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AnySell - Giao diện trang web</title>
 
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .site-header {
+            background-color: #23272e;
+            color: #e9ecef;
+            padding: 1rem 0;
+            border-bottom: 1px solid #3a3f48;
+        }
+
+        .header-top-bar {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #3a3f48;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #e9ecef;
+        }
+
+            .brand-logo .logo-icon-wrapper {
+                background-color: #319795;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 12px;
+            }
+
+                .brand-logo .logo-icon-wrapper .bi-safe {
+                    font-size: 1.2rem;
+                    color: #fff;
+                }
+
+            .brand-logo .brand-name {
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+
+        .search-promo-section {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .search-container {
+            flex: 5;
+            position: relative;
+        }
+
+            .search-container .bi-search {
+                position: absolute;
+                left: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #adb5bd;
+            }
+
+        .search-bar {
+            width: 100%;
+            background-color: #2c313a;
+            border: 1px solid #495057;
+            border-radius: 50px;
+            padding: 10px 20px 10px 50px;
+            color: #fff;
+            height: 48px;
+        }
+
+            .search-bar::placeholder {
+                color: #adb5bd;
+            }
+
+        .promo-box {
+            flex: 2;
+            display: flex;
+            align-items: center;
+            margin-left: 1.5rem;
+            color: #adb5bd;
+        }
+
+            .promo-box .promo-icon {
+                background-color: #3a3f48;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+                font-size: 1.2rem;
+                color: #319795;
+            }
+
+            .promo-box .promo-text .promo-title {
+                font-size: 0.8rem;
+                display: block;
+            }
+
+            .promo-box .promo-text .promo-details {
+                font-size: 1rem;
+                font-weight: 600;
+                color: #fff;
+                display: block;
+            }
+
+        .action-icons .btn-icon {
+            color: #adb5bd;
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+            .action-icons .btn-icon:hover {
+                color: #fff;
+            }
+
+        .header-main-nav {
+            padding-top: 1rem;
+        }
+
+        .categories-dropdown .btn {
+            background-color: #3a3f48;
+            color: #fff;
+            border: none;
+        }
+
+        .main-menu {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+            .main-menu .nav-item {
+                margin-right: 1.5rem;
+            }
+
+            .main-menu .nav-link {
+                color: #e9ecef;
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+                .main-menu .nav-link:hover, .main-menu .nav-link.active {
+                    color: #319795;
+                }
+
+        .settings-selectors {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+            .settings-selectors .dropdown .btn {
+                color: #e9ecef;
+                font-weight: 500;
+            }
+
+                .settings-selectors .dropdown .btn:focus {
+                    box-shadow: none;
+                }
+
+        .footer {
+            padding: 1rem 0;
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+    <header class="site-header">
+        <div class="container-fluid px-4">
+            <!-- Tầng 1: Logo, Search, Actions -->
+            <div class="row align-items-center header-top-bar">
+                <div class="col-md-3">
+                    <a href="~/Home/Index" class="brand-logo">
+                        <span class="logo-icon-wrapper">
+                            <i class="bi bi-safe"></i>
+                        </span>
+                        <span class="brand-name">TVR-TECH</span>
+                    </a>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="search-promo-section">
+                        <div class="search-container">
+                            <i class="bi bi-search"></i>
+                            <input type="text" class="form-control search-bar" placeholder="Tìm kiếm sản phẩm">
+                        </div>
+                        <div class="promo-box">
+                            <div class="promo-icon">%</div>
+                            <div class="promo-text">
+                                <span class="promo-title">Khuyến mãi tháng này</span>
+                                <span class="promo-details">Giảm lên đến 20%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 d-flex justify-content-end align-items-center">
+                    <div class="action-icons">
+                        <a href="#" class="btn-icon"><i class="bi bi-brightness-high"></i></a><!--Đổi giao diện sáng/tối-->
+                        <a href="#" class="btn-icon"><i class="bi bi-heart"></i></a> <!--Yêu thích-->
+                        <a href="/Account/UserInfo" class="btn-icon"><i class="bi bi-person"></i></a> <!--trang cá nhân-->
+                        <a href="#" class="btn-icon"><i class="bi bi-cart3"></i></a><!--Giỏ hàng-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tầng 2: Main Navigation -->
+            <div class="row align-items-center header-main-nav">
+                <div class="col-md-3">
+                    <div class="dropdown categories-dropdown">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-grid-3x3-gap"></i> Danh mục sản phẩm
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Laptop</a></li>
+                            <li><a class="dropdown-item" href="#">Điện thoại</a></li>
+                            <li><a class="dropdown-item" href="#">Phụ kiện</a></li>
+                            <li><a class="dropdown-item" href="#">Smart Watch</a></li>
+                            <li><a class="dropdown-item" href="#">Tablet</a></li>
+                            <li><a class="dropdown-item" href="#">PC, thiết bị văn phòng</a></li>
+                            <li><a class="dropdown-item" href="#">Máy cũ</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <ul class="main-menu">
+                        <li class="nav-item"><a href="#" class="nav-link active">Trang chủ</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Sản phẩm bán chạy</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Cửa hàng</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Danh mục 1</a></li>
+                                <li><a class="dropdown-item" href="#">Danh mục 2</a></li>
+                                <li><a class="dropdown-item" href="#">Danh mục 3</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Blog</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Bài viết mới</a></li>
+                                <li><a class="dropdown-item" href="#">Chủ đề nổi bật</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Về chúng tôi</a></li>
+                                <li><a class="dropdown-item" href="#">Liên hệ</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2"></div>
+
+                <div class="col-md-2">
+                    <div class="settings-selectors">
+                        <div class="dropdown me-2">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Eng
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">English</a></li>
+                                <li><a class="dropdown-item" href="#">Tiếng Việt</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                USD ($)
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">USD ($)</a></li>
+                                <li><a class="dropdown-item" href="#">VND (₫)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    </header>
+
+    <div class="container mt-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+            
+        </main>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - AnySell - <a href="#">Privacy</a>
+            <span class="float-end">
+                <a href="#">Quay lên đầu trang</a>
+                <a>day la footer</a>
+            </span>
+        </div>
+        @* Đặt đoạn code này vào trong thẻ <nav> hoặc <div> của header *@
+
+        <div class="ms-auto">
+            @* Dùng class này để đẩy nội dung về bên phải trong Bootstrap *@
+            @if (Session["username"] != null)
+            {
+                <div class="navbar-text d-flex align-items-center">
+                    <span class="me-3">
+                        Xin chào, <strong>@Session["username"].ToString()</strong>!
+                        (<em>@Session["role"].ToString()</em>)
+                    </span>
+                    <a href="@Url.Action("DangXuat", "Account")" class="btn btn-outline-danger btn-sm">Đăng xuất</a>
+                </div>
+            }
+            else
+            {
+                <a href="@Url.Action("DangNhap", "Account")" class="btn btn-primary">Đăng nhập</a>
+            }
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

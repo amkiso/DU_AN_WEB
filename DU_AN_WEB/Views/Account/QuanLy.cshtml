@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>QuanLy</title>
+</head>
+<body>
+    <div>
+        Đây là trang Quản Lý
+    </div>
+    @* --- KHUNG HIỂN THỊ DEBUG --- *@
+    <div class="alert alert-success" style="text-align: left;">
+        <h5 class="alert-heading">Thông tin Session đọc tại UserInfo</h5>
+        <hr>
+        <p class="mb-1"><strong>Username từ Session:</strong> <code>@ViewBag.SessionUsername</code></p>
+        <p class="mb-0"><strong>Role từ Session:</strong> <code>@ViewBag.SessionRole</code></p>
+    </div>
+    @* --- KẾT THÚC KHUNG DEBUG --- *@  
+
+    
+    @* Nội dung còn lại của trang *@
+</body>
+</html>

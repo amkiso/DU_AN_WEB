@@ -121,16 +121,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Otpmodel.cs" />
     <Compile Include="Models\QL_SANPHAM.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QL_SANPHAM.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -153,7 +154,9 @@
     <Content Include="Content\Pic\bgr.jpg" />
     <Content Include="Content\Pic\ChatGPT Image 21_12_37 10 thg 7, 2025.png" />
     <Content Include="Content\Pic\IMG_20250713_143625.jpg" />
+    <Content Include="Content\Style.css" />
     <Content Include="Content\Style\css.css" />
+    <Content Include="Content\Style\Layout_style.css" />
     <Content Include="Content\Style\login.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -196,10 +199,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\DangNhap.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Home\DangNhap.cshtml" />
-    <Content Include="Views\Home\Dangki.cshtml" />
+    <Content Include="Views\Account\Dangki.cshtml" />
+    <Content Include="Views\Account\User.cshtml" />
+    <Content Include="Views\Account\QuanLy.cshtml" />
+    <Content Include="Views\Home\Thongbao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

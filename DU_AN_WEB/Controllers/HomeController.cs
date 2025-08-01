@@ -5,6 +5,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
+using System.Net.Mail;
 using DU_AN_WEB.Models; // Thêm namespace chứa các model nếu cần
 namespace DU_AN_WEB.Controllers
 {
@@ -16,13 +18,23 @@ namespace DU_AN_WEB.Controllers
         {
             return View();
         }
-        public ActionResult DangNhap()
+        public ActionResult Thongbao()
         {
-            return View();
-        }
-        public ActionResult Dangki()
-        {
-            return View();
+            if (Session["userid"] == null)
+                return RedirectToAction("DangNhap", "Account");
+
+            string userId = Session["userid"].ToString();
+
+            // Lấy thông tin người dùng
+            var user = data.USER_DATAs.FirstOrDefault(u => u.ID_USER == userId);
+
+            if (user == null)
+            {
+                TempData["Error"] = "Không tìm thấy người dùng.";
+                return RedirectToAction("DangNhap", "Account");
+            }
+
+            return View(user); // Truyền model sang view
         }
         public ActionResult About()
         {
@@ -37,39 +49,5 @@ namespace DU_AN_WEB.Controllers
 
             return View();
         }
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult SubmitForm(FormCollection account)
-        {
-            string username = account["username"];
-            string password = account["password"];
-
-            // Kiểm tra nhập thiếu
-            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-            {
-                ViewBag.Message = "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu!";
-                return View("DangNhap");
-            }
-
-            // Kiểm tra thông tin người dùng trong CSDL
-            USER_DATA user = data.USER_DATAs.FirstOrDefault(
-                u => u.NAME_USER == username && u.USER_PASSWORD == password
-            );
-
-            if (user == null)
-            {
-                ViewBag.Message = "Tên đăng nhập hoặc mật khẩu không đúng!";
-                return View("DangNhap");
-            }
-
-            // Đăng nhập thành công
-            ViewBag.Message = "Đăng nhập thành công!";
-            return RedirectToAction("Index", "Home"); // Hoặc chuyển hướng đến trang chính sau đăng nhập
-        }
-
     }
 }
