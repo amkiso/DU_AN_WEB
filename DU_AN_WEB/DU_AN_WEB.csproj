@@ -132,7 +132,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QL_SANPHAM.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Models\RegisterAccount.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -156,6 +155,16 @@
     <Content Include="Content\Pic\bgr.jpg" />
     <Content Include="Content\Pic\ChatGPT Image 21_12_37 10 thg 7, 2025.png" />
     <Content Include="Content\Pic\IMG_20250713_143625.jpg" />
+    <Content Include="Content\Project_Pic\ip16promax256.jpg" />
+    <Content Include="Content\Project_Pic\iphone-13-starlight-1-600x600.jpg" />
+    <Content Include="Content\Project_Pic\iPhone-14-plus-thumb-xanh-600x600.jpg" />
+    <Content Include="Content\Project_Pic\iphone-15-hong-thumb-1-600x600.jpg" />
+    <Content Include="Content\Project_Pic\iphone-15-plus-xanh-la-128gb-thumb-600x600.jpg" />
+    <Content Include="Content\Project_Pic\iphone-15-pro-max-blue-thumbnew-600x600.jpg" />
+    <Content Include="Content\Project_Pic\iphone-16-blue-600x600.png" />
+    <Content Include="Content\Project_Pic\iphone-16-plus-xanh-thumb-600x600.jpg" />
+    <Content Include="Content\Project_Pic\iphone-16-pro-titan-trang.png" />
+    <Content Include="Content\Project_Pic\iphone-16e-white-thumb-600x600.jpg" />
     <Content Include="Content\Style.css" />
     <Content Include="Content\Style\css.css" />
     <Content Include="Content\Style\Layout_style.css" />
@@ -174,6 +183,7 @@
       <LastGenOutput>QL_SANPHAM.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\DATA\ChiTietSanPham.json" />
     <None Include="Models\QL_SANPHAM.dbml.layout">
       <DependentUpon>QL_SANPHAM.dbml</DependentUpon>
     </None>
@@ -208,6 +218,7 @@
     <Content Include="Views\Account\User.cshtml" />
     <Content Include="Views\Account\QuanLy.cshtml" />
     <Content Include="Views\Home\Thongbao.cshtml" />
+    <Content Include="Views\Account\QuenMatKhau.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

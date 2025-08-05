@@ -17,7 +17,10 @@ namespace DU_AN_WEB.Controllers
         {
             return View();
         }
-        
+        public ActionResult QuenMatKhau()
+        {
+            return View();
+        }
         public ActionResult DangNhap()
         {
             return View();
@@ -56,6 +59,9 @@ namespace DU_AN_WEB.Controllers
             // Kiểm tra quyền của người dùng
             if (user.USER_TYPE == "ADMINISTRATOR")
             {
+                return RedirectToAction("QuanLy", "Account");
+            }
+            if (user.USER_TYPE =="QuanLy") {
                 return RedirectToAction("QuanLy", "Account");
             }
             else
@@ -113,7 +119,7 @@ namespace DU_AN_WEB.Controllers
             // Kiểm tra email đã tồn tại
             if (data.USER_DATAs.Any(u => u.EMAIL.Trim() == model.EMAIL.Trim()))
             {
-                ViewBag.Message = "Email đã được sử dụng.";
+                ViewBag.Message = "Email đã được sử dụng.!";
                 return View("Dangki", model);
             }
 
@@ -192,8 +198,14 @@ namespace DU_AN_WEB.Controllers
                 var mail = new MailMessage
                 {
                     From = new MailAddress("your_email@gmail.com", "Tên website"),
-                    Subject = "Mã xác nhận đăng ký",
-                    Body = $"Mã xác nhận của bạn là: {otp}",
+                    Subject = "Mã xác nhận đăng ký tài khoản mua hàng",
+                    Body = $"Xin chào {model.Email} !" +
+                    $"\nMã xác nhận của bạn là: {otp}"+
+                    $"\nĐây là mã xác nhận để tạo tài khoản mua hàng tại MY_PROJECT.COM"+
+                    $"\nMã này sẽ hết hạn sau 5 phút." +
+                    $"\nVui lòng không chia sẻ mã này với bất kỳ ai."+
+                    $"\nNếu bạn không phải là người yêu cầu mã này, vui lòng bỏ qua email này." +
+                    $"\nCảm ơn bạn đã sử dụng dịch vụ của chúng tôi.!",
                     IsBodyHtml = false,
                 };
                 mail.To.Add(model.Email);
