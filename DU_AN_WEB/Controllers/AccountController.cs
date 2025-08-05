@@ -104,6 +104,72 @@ namespace DU_AN_WEB.Controllers
             return RedirectToAction("ThongBao", "Home");
         }
 
+        [HttpPost]
+        public ActionResult Register(RegisterModel model)
+        {
+            if (!ModelState.IsValid)
+                return View("Dangki", model);
+
+            // Kiểm tra email đã tồn tại
+            if (data.USER_DATAs.Any(u => u.EMAIL.Trim() == model.EMAIL.Trim()))
+            {
+                ViewBag.Message = "Email đã được sử dụng.";
+                return View("Dangki", model);
+            }
+
+            // ✅ Lấy OTP từ session theo email
+            var otpData = Session["OTP_" + model.EMAIL] as Otpmodel;
+
+            if (otpData == null)
+            {
+                ViewBag.Message = "Bạn chưa yêu cầu mã xác nhận.";
+                return View("Dangki", model);
+            }
+
+            if (DateTime.Now > otpData.ExpirationTime)
+            {
+                ViewBag.Message = "Mã xác nhận đã hết hạn.";
+                return View("Dangki", model);
+            }
+
+            if (model.VERIFICATION_CODE != otpData.Code)
+            {
+                ViewBag.Message = "Mã xác nhận không đúng.";
+                return View("Dangki", model);
+            }
+
+            // Tạo ID_USER duy nhất
+            string idUser;
+            do
+            {
+                idUser = "USER" + new Random().Next(100000, 999999).ToString();
+            } while (data.USER_DATAs.Any(u => u.ID_USER == idUser));
+
+            USER_DATA newUser = new USER_DATA
+            {
+                ID_USER = idUser,
+                NAME_USER = model.NAME_USER,
+                USER_PASSWORD = model.USER_PASSWORD, // hoặc mã hóa nếu cần
+                USER_ADDRESS = model.USER_ADDRESS,
+                EMAIL = model.EMAIL,
+                DAY_CREATED = DateTime.Now,
+                USER_TYPE = "Customer",
+                USER_STATUS = "Active",
+                PROFILE_PICTURE = null
+            };
+
+            data.USER_DATAs.InsertOnSubmit(newUser);
+            data.SubmitChanges();
+
+            TempData["SuccessMessage"] = "Đăng ký thành công! Mời bạn đăng nhập.";
+            return RedirectToAction("Dangnhap", "Account");
+        }
+
+        private string GenerateUserId()
+        {
+            Random rnd = new Random();
+            return "USER" + rnd.Next(100000, 999999).ToString();
+        }
 
         public JsonResult SendOtpCode(Otpmodel model)
         {
@@ -133,6 +199,10 @@ namespace DU_AN_WEB.Controllers
                 mail.To.Add(model.Email);
 
                 smtpClient.Send(mail);
+
+                // ✅ Lưu OTP vào session theo email
+                Session["OTP_" + model.Email] = model;
+
                 return Json(new { success = true, message = "Mã xác nhận đã được gửi đến " + model.Email });
             }
             catch (Exception ex)
@@ -140,6 +210,7 @@ namespace DU_AN_WEB.Controllers
                 return Json(new { success = false, message = "Lỗi gửi email: " + ex.Message });
             }
         }
+
 
     }
 }

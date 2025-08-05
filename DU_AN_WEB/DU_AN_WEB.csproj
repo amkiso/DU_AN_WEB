@@ -132,6 +132,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QL_SANPHAM.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\RegisterAccount.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

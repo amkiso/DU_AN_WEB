@@ -62,28 +62,28 @@
                     @ViewBag.Message
                 </div>
             }
-            @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post))
             {
                 <div class="form-group mb-3">
-                    <input type="text" name="username" class="form-control " placeholder="Tên đăng nhập" />
+                    <input type="text" name="NAME_USER" class="form-control " placeholder="Tên đăng nhập" />
                 </div>
                 <div class="form-group mb-3">
-                    <input type="password" name="password" class="form-control " placeholder="Địa chỉ" />
+                    <input type="text" name="USER_ADDRESS" class="form-control " placeholder="Địa chỉ" />
                 </div>
 
                 <div class="form-group mb-3">
-                    <input type="password" name="password" class="form-control " placeholder="Mật khẩu" />
+                    <input type="password" name="USER_PASSWORD" class="form-control " placeholder="Mật khẩu" />
                 </div>
                 <div class="form-group mb-3">
-                    <input type="text" name="username" class="form-control " placeholder="Nhập lại mật khẩu" />
+                    <input type="password" name="CONFIRM_PASSWORD" class="form-control " placeholder="Nhập lại mật khẩu" />
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <div class="form-group me-2" style="flex: 1;">
-                        <input type="email" name="email" class="form-control" id="emailInput" placeholder="Email" />
+                        <input type="EMAIL" name="email" class="form-control" id="emailInput" placeholder="Email" />
                     </div>
                     <div class="form-group me-2">
-                        <input type="text" name="verificationCode" class="form-control" placeholder="Mã xác nhận" style="width: 120px;" />
+                        <input type="text" name="VERIFICATION_CODE" class="form-control" placeholder="Mã xác nhận" style="width: 120px;" />
                     </div>
                     <button type="button" class="btn btn-primary" id="sendCodeBtn" onclick="sendCode()">Gửi mã</button>
                 </div>
@@ -115,7 +115,7 @@
             }
 
             $.ajax({
-                url: '/Home/SendOtpCode',
+                url: '/Account/SendOtpCode',
                 type: 'POST',
                 data: { Email: email }, // không cần stringify
                 success: function (res) {
